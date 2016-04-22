@@ -10,5 +10,5 @@ We also have a Caltech twiki page for the summer [here](https://twiki.hep.caltec
 
 ## Tutorial list
 
-  - [Install ROOT](day0)
-  - [First steps, make a histogram](day1)
+  - [Getting Started](day0) -- Install ROOT, git
+  - [Basic ROOT Use](day1) -- make a histogram
