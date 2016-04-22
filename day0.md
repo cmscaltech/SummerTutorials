@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Installing ROOT
-subtitle: First Steps
+title: Getting Started
+subtitle: Install ROOT
 ---
 
-Nothing on github for today, you'll be setting up ROOT and git on your personal computer.
+Today we'll be setting up ROOT and git on your personal computer.
 
 # Installing ROOT version 6.06
 
