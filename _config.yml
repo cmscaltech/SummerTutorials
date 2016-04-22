@@ -25,7 +25,7 @@ description: A virtual proof that name is awesome!
 navbar-links:
   Home: "index"
   Tutorial List:
-    - Computing Prerequisites: "day0"
+    - Getting Started: "day0"
     - Basic ROOT Use: "day1"
   Other Resources:
     - Our Twiki: "https://twiki.hep.caltech.edu/twiki/bin/view/Main/Summer2016"
