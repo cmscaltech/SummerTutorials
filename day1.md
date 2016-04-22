@@ -2,6 +2,7 @@
 layout: page
 title: Getting started with ROOT
 subtitle: and make a histogram
+published: true
 ---
 
 Today we'll be taking [this raw data](https://github.com/cmscaltech/SummerTutorials/blob/master/Day1/basic.dat) and plotting a histogram in ROOT. 
@@ -9,12 +10,12 @@ Today we'll be taking [this raw data](https://github.com/cmscaltech/SummerTutori
 ## Histograms 
 
 A histogram is a graph of a set of observations. Say we have *n* observations of a random variable *xi*, called bins. The number of
-occurences of *ni* of *x* in each subinterval is plotted on the y-axis. In the limit of zero bin width, and
+occurences of *n\_i* of *x* in each subinterval is plotted on the y-axis. In the limit of zero bin width, and
 infinite observations a histogram exactly replicates a probability density function, or p.d.f. [This](https://github.com/cmscaltech/SummerTutorials/blob/master/Day1/figure_histograms.pdf)
 shows the relation between histograms as we change the number of observations and the p.d.f. from which observations are drawn.
 
-To create a histogram from input data text file `Day1/basic.dat` simply run the macro
-named `Day1/histogram1D.C`. To run it, begin at a UNIX prompt in the directory `Day1`, open
+To create a histogram from input data text file Day1/basic.dat simply run the macro
+named Day1/histogram1D.C. To run it, begin at a UNIX prompt in the directory `Day1`, open
 ROOT, then execute the macro
 
       $ root -l
