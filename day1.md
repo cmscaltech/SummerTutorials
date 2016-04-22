@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Getting started with ROOT
-subtitle: and make a histogram
+title: Basic ROOT Use
+subtitle: Make a histogram
 published: true
 ---
 
