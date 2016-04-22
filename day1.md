@@ -9,13 +9,13 @@ Today we'll be taking [this raw data](https://github.com/cmscaltech/SummerTutori
 
 ## Histograms 
 
-A histogram is a graph of a set of observations. Say we have *n* observations of a random variable *xi*, called bins. The number of
+A histogram is a graph of a set of observations. Say we have *n* observations of a random variable *x\_i*, called bins. The number of
 occurences of *n\_i* of *x* in each subinterval is plotted on the y-axis. In the limit of zero bin width, and
 infinite observations a histogram exactly replicates a probability density function, or p.d.f. [This](https://github.com/cmscaltech/SummerTutorials/blob/master/Day1/figure_histograms.pdf)
 shows the relation between histograms as we change the number of observations and the p.d.f. from which observations are drawn.
 
-To create a histogram from input data text file Day1/basic.dat simply run the macro
-named Day1/histogram1D.C. To run it, begin at a UNIX prompt in the directory `Day1`, open
+To create a histogram from input data text file `Day1/basic.dat` simply run the macro
+named `Day1/histogram1D.C`. To run it, begin at a UNIX prompt in the directory `Day1`, open
 ROOT, then execute the macro
 
       $ root -l
@@ -41,4 +41,4 @@ from different events. This link is called a branch. In the tutorial I showed ho
 with a few branches for the variables x, y, and z. Sometimes this is called a “flat ntuple” because
 none of the information is nested. Here’s a more complicated example, with a nested hierarchy of
 information. There is a branch of particles, each particle branch has sub-branches:
-http://lcg-heppkg.web.cern.ch/lcg-heppkg/ROOT/eventdata.root
+<http://lcg-heppkg.web.cern.ch/lcg-heppkg/ROOT/eventdata.root>
