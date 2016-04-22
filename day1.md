@@ -4,29 +4,40 @@ title: Getting started with ROOT
 subtitle: and make a histogram
 ---
 
-Nothing on github for today, you'll be setting up ROOT on your personal computer.
+Today we'll be taking [this raw data](https://github.com/cmscaltech/SummerTutorials/blob/master/Day1/basic.dat) and plotting a histogram in ROOT. 
 
-## Installing ROOT version 6.06
+## Histograms 
 
-[ROOT prerequisites by operating system](https://root.cern.ch/build-prerequisites)
+A histogram is a graph of a set of observations. Say we have *n* observations of a random variable *xi*, called bins. The number of
+occurences of *ni* of *x* in each subinterval is plotted on the y-axis. In the limit of zero bin width, and
+infinite observations a histogram exactly replicates a probability density function, or p.d.f. [This](https://github.com/cmscaltech/SummerTutorials/blob/master/Day1/figure_histograms.pdf)
+shows the relation between histograms as we change the number of observations and the p.d.f. from which observations are drawn.
 
-## For Windows users
+To create a histogram from input data text file `Day1/basic.dat` simply run the macro
+named `Day1/histogram1D.C`. To run it, begin at a UNIX prompt in the directory `Day1`, open
+ROOT, then execute the macro
 
-The current version of ROOT is not supported on Windows, and Unix/Linux is the default in HEP, so we strongly encourage you to get an Unix/Linux installation. Ubuntu is a user-friendly place to start if you've never seen Linux before, and there are ways to install it and keep your Windows install (dual boot or virtual machine). We’ve compiled some links for your convenience but follow them at your own risk!
+      $ root -l
+      root [0] .x histogram1D.C
+      x=-1.102279, y=-1.799389, z=4.452822
+      x=1.867178, y=-0.596622, z=3.842313
+      x=-0.524181, y=1.868521, z=3.766139
+      x=-0.380611, y=0.969128, z=1.084074
+      x=0.552454, y=-0.212309, z=0.350281
+      root [1]
 
-- [Get Ubuntu](http://www.ubuntu.com/download/desktop/)
-- [Instructions for dual booting Ubuntu](https://help.ubuntu.com/community/WindowsDualBoot)
-- [Setup a virtual machine with Ubuntu](http://www.instructables.com/id/Introduction-38/)
 
-You're now running Ubuntu, so skip to the Ubuntu instructions.
+## Tree
 
-## For Ubuntu/UNIX users
+A ROOT TTree (just “tree” for short) is structured container of data, specially designed for collider.
+In a collider, we typically are interested in the distribution of certain quantities over many collision
+events (or entries). For example, in events with electrons, we may be interested in the distribution
+of the an electron’s momentum *|p|*, maybe after requiring that the electron was within “acceptance”
+of the detector.
 
-These two links should have everything you need to install ROOT:
-
-- [Get the source code](https://root.cern.ch/content/release-60602)
-- [Compile and install on UNIX machines with cmake](https://root.cern.ch/installing-root-source)
-
-## For OS X users
-
-Follow this [excellent guide](https://alexpearce.me/2016/02/root-on-os-x-el-capitan/) for OS X 10.11 (and 10.8/10.9).
+A tree tries to organize this information by effectively linking similar types of information
+from different events. This link is called a branch. In the tutorial I showed how to create a tree,
+with a few branches for the variables x, y, and z. Sometimes this is called a “flat ntuple” because
+none of the information is nested. Here’s a more complicated example, with a nested hierarchy of
+information. There is a branch of particles, each particle branch has sub-branches:
+http://lcg-heppkg.web.cern.ch/lcg-heppkg/ROOT/eventdata.root
