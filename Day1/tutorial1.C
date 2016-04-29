@@ -15,7 +15,30 @@
 
 void tutorial1() {
 
+  cout << "Hello world!" << endl;
 
+  ifstream in; 
+  in.open("basic.dat");
 
+  TFile *f = new TFile("output.root","recreate");
 
+  TH1F *h = new TH1F("hist", "1D hist", 100, -5, 5);
+
+  float x;
+  while (true) {
+    if (!in.good()) {
+      break;
+    }
+    in >> x;
+    //cout << x << endl;
+    h->Fill(x);
+  }
+
+  TCanvas *c = new TCanvas("c", "canvas",800, 600);
+
+  h->Draw();
+
+  c->SaveAs("tutorial1.png");
+  f->Write();
+  f->Close();
 }
