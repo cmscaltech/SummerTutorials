@@ -2,7 +2,15 @@
 
   const Double_t MUON_MASS = 0.105658369;
 
-  TFile *f = new TFile("DY_tutorial.root");
+  
+  TFile* fout = TFile::Open("treeArray.root","RECREATE");
+  TTree* tree = new TTree("tree","Tree Array");
+  float mMuMu = 0;
+  tree->Branch("mMuMu", &mMuMu, "mMuMu/F");
+
+  
+  TFile *f = TFile::Open("DY_tutorial.root","read");
+
   TTree *t = (TTree*) f->Get("ntuples/RazorEvents");
 
   UInt_t          eventNum;
@@ -30,7 +38,7 @@
   TH1D *hZMass = new TH1D("hZMass", "hZMass", 30,60,120);
 
   for (Int_t i=0; i<t->GetEntries(); i++) {
-  //for (Int_t i=0; i<1000; i++) {
+  //for (Int_t i=0; i<100; i++) {
     t->GetEntry(i);
     hNumMuons->Fill(nMuons);
 
@@ -64,7 +72,8 @@
       mu2.SetPtEtaPhiM(muonPt[jSec],muonEta[jSec],muonPhi[jSec], MUON_MASS);
       TLorentzVector zmm = mu1 + mu2;
       hZMass->Fill(zmm.M());
-      
+      mMuMu = zmm.M();      
+      tree->Fill();
     }
     
   }
@@ -105,5 +114,9 @@
   hZMass->GetYaxis()->SetRangeUser(0, 1.2*hZMass->GetMaximum());
   hZMass->Draw("");
   c1->SaveAs("z_mass.png");
+
+  fout->cd();
+  tree->Write("tree");
+  fout->Close();
 
 }
